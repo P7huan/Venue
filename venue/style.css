@@ -18,18 +18,19 @@ Template: astra
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   align-content: center;
   padding-top: 40px;
 }
 
 .left-top-project {
-  width: 40%;
+  width: 100%;
 }
 
 #slider {
-  width: 60%;
+  width: 100%;
+  padding: 0 30px;
 }
 .clear {
   clear: both;
@@ -57,7 +58,7 @@ button.slick-prev.slick-arrow {
   margin-bottom: 15px;
 }
 .villa-content {
-  padding-right: 30px;
+  padding: 0 30px;
 }
 .slick-next {
   right: 20px !important;
@@ -108,6 +109,7 @@ h2.widgettitle {
   align-content: center;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 }
 .searchandfilter ul li {
   display: flex;
@@ -299,11 +301,32 @@ h2.widgettitle {
   font-size: 26px !important;
   text-transform: uppercase;
 }
+.site-title {
+  display: none;
+}
+.attachment-villathumb {
+  min-height: 207px;
+  width: auto;
+  object-fit: cover;
+}
 @media (min-width: 576px) {
 }
 
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
+  .top-project {
+    flex-direction: row;
+  }
+  .left-top-project {
+    width: 40%;
+  }
+  #slider {
+    width: 60%;
+    padding: 0;
+  }
+  .villa-content {
+    padding-right: 30px;
+  }
 }
 
 /*// Large devices (desktops, 992px and up)*/
