@@ -344,8 +344,9 @@ h2.widgettitle {
   max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 60px;
+  padding: 0 30px;
 }
-.ralateb-villa__heading {
+.ralated-villa__heading {
   margin: 30px 0;
 }
 .ast-separate-container .post-navigation {
@@ -373,6 +374,12 @@ h2.widgettitle {
 
 /*// Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
+  .ralated-villa__container {
+    flex-wrap: nowrap;
+  }
+  .ralated-villa__item img {
+    width: 254px;
+  }
 }
 
 /*// Extra large devices (large desktops, 1200px and up)*/
@@ -394,10 +401,7 @@ h2.widgettitle {
   .villa-loop-content section {
     padding: 7px;
   }
-  .ralated-villa__container {
-    flex-wrap: nowrap;
-  }
-  .ralated-villa__item img {
-    width: 254px;
+  .villa-section {
+    padding: 0;
   }
 }

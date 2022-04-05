@@ -192,7 +192,7 @@ $(document).ready(function() {
     </div><!-- #secondary -->
 </div>
 <div class="villa-section">
-    <h2 class="rooms-title">
+    <h2 class="rooms-title ralated-villa__heading">
         Tiện ích phòng ở
     </h2>
     <div class="villa-tienich">
@@ -202,7 +202,7 @@ $(document).ready(function() {
 				 ?>
     </div>
 
-    <h2 class="rooms-title">
+    <h2 class="rooms-title ">
         Quy định
     </h2>
     <?php 
@@ -237,7 +237,7 @@ $(document).ready(function() {
                         );
                         $my_query = new wp_query($args);
                         if( $my_query->have_posts() ):
-                        echo '<h3 class="rooms-title ralateb-villa__heading">VILLA LIÊN QUAN</h3>
+                        echo '<h3 class="rooms-title ralated-villa__heading">VILLA LIÊN QUAN</h3>
                         <div class="ralated-villa__container">';
                             while ($my_query->have_posts()):$my_query->the_post();
                             echo '<div class="ralated-villa__item">
