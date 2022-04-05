@@ -309,6 +309,36 @@ h2.widgettitle {
   width: auto;
   object-fit: cover;
 }
+.ralated-villa__container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ralated-villa__item {
+  margin: 0 8px;
+  padding: 5px;
+  box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 20%);
+  transition: all 0.5s ease-in-out;
+}
+.ralated-villa__item img {
+  width: auto;
+  min-height: 190px;
+  object-fit: cover;
+}
+.ralated-villa__container-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #47b2bc;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 16px 0 20px;
+  display: block;
+}
+.ralated-villa__item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 20%);
+}
 @media (min-width: 576px) {
 }
 
@@ -326,6 +356,12 @@ h2.widgettitle {
   }
   .villa-content {
     padding-right: 30px;
+  }
+  .ralated-villa__container {
+    flex-wrap: nowrap;
+  }
+  .ralated-villa__item img {
+    width: 254px;
   }
 }
 

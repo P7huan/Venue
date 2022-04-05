@@ -190,6 +190,44 @@ $(document).ready(function() {
                         <?php echo $page_data->post_content;?>
                     </p>
                 </div>
+                <div class="ralated-villa">
+                    <?php
+                    $postType = 'villa';
+                    $taxonomyName = 'khu_vuc';
+                    $taxonomy = get_the_terms(get_the_ID(), $taxonomyName);
+                    if ($taxonomy){
+                    echo '<div class="relatedcat">';
+                        $category_ids = array();
+                        foreach($taxonomy as $individual_category) $category_ids[] = $individual_category->term_id;
+                        $args = array(
+                        'post_type' => $postType,
+                        'post__not_in' => array(get_the_ID()),
+                        'posts_per_page' => 3,
+                        'tax_query' => array(
+                        array(
+                        'taxonomy' => $taxonomyName,
+                        'field' => 'term_id',
+                        'terms' => $category_ids,
+                        ),
+                        )
+                        );
+                        $my_query = new wp_query($args);
+                        if( $my_query->have_posts() ):
+                        echo '<h3 class="rooms-title">VILLA LIÊN QUAN</h3>
+                        <div class="ralated-villa__container">';
+                            while ($my_query->have_posts()):$my_query->the_post();
+                            echo '<div class="ralated-villa__item">
+                            <img src="'.get_the_post_thumbnail_url().'"alt="'.get_the_title().'">
+                            <a class="ralated-villa__container-title" href="'.get_the_permalink().'">'.get_the_title().'</a>
+                                </div>';
+                            endwhile;
+                            echo '</div>';
+                        endif; wp_reset_query();
+                        echo '
+                    </div>';
+                    }
+                    ?>
+                </div>
                 <?php astra_entry_content_after(); ?>
 
                 <?php
