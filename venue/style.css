@@ -319,6 +319,7 @@ h2.widgettitle {
   padding: 5px;
   box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 20%);
   transition: all 0.5s ease-in-out;
+  border-radius: 6px;
 }
 .ralated-villa__item img {
   width: auto;
@@ -339,6 +340,17 @@ h2.widgettitle {
   transform: translateY(-3px);
   box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 20%);
 }
+.villa-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+.ralateb-villa__heading {
+  margin: 30px 0;
+}
+.ast-separate-container .post-navigation {
+  display: none !important;
+}
 @media (min-width: 576px) {
 }
 
@@ -356,12 +368,6 @@ h2.widgettitle {
   }
   .villa-content {
     padding-right: 30px;
-  }
-  .ralated-villa__container {
-    flex-wrap: nowrap;
-  }
-  .ralated-villa__item img {
-    width: 254px;
   }
 }
 
@@ -387,5 +393,11 @@ h2.widgettitle {
   }
   .villa-loop-content section {
     padding: 7px;
+  }
+  .ralated-villa__container {
+    flex-wrap: nowrap;
+  }
+  .ralated-villa__item img {
+    width: 254px;
   }
 }

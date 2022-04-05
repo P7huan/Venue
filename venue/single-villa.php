@@ -168,30 +168,54 @@ $(document).ready(function() {
                         </tr>
                     </table>
                 </div>
-                <h2 class="rooms-title">
-                    Tiện ích phòng ở
-                </h2>
-                <div class="villa-tienich">
-                    <?php 
+                <footer class="entry-footer">
+                    <?php astra_entry_footer(); ?>
+                </footer><!-- .entry-footer -->
+
+                <?php  astra_entry_bottom(); ?>
+
+        </article><!-- #post-## -->
+
+        <?php astra_entry_after(); ?>
+
+
+        <?php // astra_primary_content_bottom(); ?>
+
+    </div><!-- #primary -->
+
+    <?php // if ( astra_page_layout() == 'right-sidebar' ) : ?>
+    <div id="secondary">
+        <div class="widget">
+
+            <?php  dynamic_sidebar('sidebar-villa'); ?>
+        </div><!-- .sidebar-main -->
+    </div><!-- #secondary -->
+</div>
+<div class="villa-section">
+    <h2 class="rooms-title">
+        Tiện ích phòng ở
+    </h2>
+    <div class="villa-tienich">
+        <?php 
 	echo get_field('tien_ich',$postid);
 
 				 ?>
-                </div>
+    </div>
 
-                <h2 class="rooms-title">
-                    Quy định
-                </h2>
-                <?php 
+    <h2 class="rooms-title">
+        Quy định
+    </h2>
+    <?php 
                     $page_id = 410;
                     $page_data = get_page( $page_id );
                     ?>
-                <div class="villa-dichvu">
-                    <p class="villa-dichvu__content">
-                        <?php echo $page_data->post_content;?>
-                    </p>
-                </div>
-                <div class="ralated-villa">
-                    <?php
+    <div class="villa-dichvu">
+        <p class="villa-dichvu__content">
+            <?php echo $page_data->post_content;?>
+        </p>
+    </div>
+    <div class="ralated-villa">
+        <?php
                     $postType = 'villa';
                     $taxonomyName = 'khu_vuc';
                     $taxonomy = get_the_terms(get_the_ID(), $taxonomyName);
@@ -202,7 +226,7 @@ $(document).ready(function() {
                         $args = array(
                         'post_type' => $postType,
                         'post__not_in' => array(get_the_ID()),
-                        'posts_per_page' => 3,
+                        'posts_per_page' => 5,
                         'tax_query' => array(
                         array(
                         'taxonomy' => $taxonomyName,
@@ -213,7 +237,7 @@ $(document).ready(function() {
                         );
                         $my_query = new wp_query($args);
                         if( $my_query->have_posts() ):
-                        echo '<h3 class="rooms-title">VILLA LIÊN QUAN</h3>
+                        echo '<h3 class="rooms-title ralateb-villa__heading">VILLA LIÊN QUAN</h3>
                         <div class="ralated-villa__container">';
                             while ($my_query->have_posts()):$my_query->the_post();
                             echo '<div class="ralated-villa__item">
@@ -227,10 +251,10 @@ $(document).ready(function() {
                     </div>';
                     }
                     ?>
-                </div>
-                <?php astra_entry_content_after(); ?>
+    </div>
+    <?php astra_entry_content_after(); ?>
 
-                <?php
+    <?php
 			wp_link_pages(
 				array(
 					'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-single-page-links-before', false ) ),
@@ -240,32 +264,10 @@ $(document).ready(function() {
 				)
 			);
 			?>
-            </div><!-- .entry-content .clear -->
-
-            <footer class="entry-footer">
-                <?php astra_entry_footer(); ?>
-            </footer><!-- .entry-footer -->
-
-            <?php astra_entry_bottom(); ?>
-
-        </article><!-- #post-## -->
-
-        <?php astra_entry_after(); ?>
-
-
-        <?php astra_primary_content_bottom(); ?>
-
-    </div><!-- #primary -->
-
-    <?php // if ( astra_page_layout() == 'right-sidebar' ) : ?>
-    <div id="secondary">
-        <div class="widget">
-
-            <?php  dynamic_sidebar('sidebar-villa'); ?>
-        </div><!-- .sidebar-main -->
-    </div><!-- #secondary -->
-    <?php // endif ?>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <script src="<?php echo bloginfo('template_directory'); ?>/slick/slick.js" type="text/javascript" charset="utf-8">
-    </script>
-    <?php get_footer(); ?>
+</div><!-- .entry-content .clear -->
+</div>
+<?php // endif ?>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="<?php echo bloginfo('template_directory'); ?>/slick/slick.js" type="text/javascript" charset="utf-8">
+</script>
+<?php get_footer(); ?>
